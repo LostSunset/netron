@@ -2251,6 +2251,43 @@
     "link":     "https://github.com/lutzroeder/netron/issues/998"
   },
   {
+    "type":     "kann",
+    "target":   "googlenet-fp16.kgraph",
+    "source":   "https://github.com/kalray/kann-models-zoo/raw/refs/heads/main/utils/kann-graph/googlenet-fp16.kgraph",
+    "format":   "KaNN",
+    "link":     "https://github.com/lutzroeder/netron/issues/1408"
+  },
+  {
+    "type":     "kann",
+    "target":   "mobilenet-v2-fp16.kgraph",
+    "source":   "https://github.com/kalray/kann-models-zoo/raw/refs/heads/main/utils/kann-graph/mobilenet-v2-fp16.kgraph",
+    "format":   "KaNN",
+    "tags":     "quantization",
+    "link":     "https://github.com/lutzroeder/netron/issues/1408"
+  },
+  {
+    "type":     "kann",
+    "target":   "resnet50-v1.5-mlperf-quantized-fp16.kgraph",
+    "source":   "https://github.com/kalray/kann-models-zoo/raw/refs/heads/main/utils/kann-graph/resnet50-v1.5-mlperf-quantized-fp16.kgraph",
+    "format":   "KaNN",
+    "tags":     "quantization",
+    "link":     "https://github.com/lutzroeder/netron/issues/1408"
+  },
+  {
+    "type":     "kann",
+    "target":   "squeezenet-v1-fp16.kgraph",
+    "source":   "https://github.com/kalray/kann-models-zoo/raw/refs/heads/main/utils/kann-graph/squeezenet-v1-fp16.kgraph",
+    "format":   "KaNN",
+    "link":     "https://github.com/lutzroeder/netron/issues/1408"
+  },
+  {
+    "type":     "kann",
+    "target":   "yolov3-fp16.kgraph",
+    "source":   "https://github.com/kalray/kann-models-zoo/raw/refs/heads/main/utils/kann-graph/yolov3-fp16.kgraph",
+    "format":   "KaNN",
+    "link":     "https://github.com/lutzroeder/netron/issues/1408"
+  },
+  {
     "type":     "keras",
     "target":   "0326.json",
     "source":   "https://github.com/lutzroeder/netron/files/13367043/0326.json.zip[0326.json]",
@@ -4956,11 +4993,39 @@
   },
   {
     "type":     "paddle",
+    "target":   "for_net.json",
+    "source":   "https://github.com/user-attachments/files/18105174/for_net.json",
+    "format":   "PaddlePaddle IR v1",
+    "link":     "https://github.com/lutzroeder/netron/issues/1407"
+  },
+  {
+    "type":     "paddle",
+    "target":   "if_net.json",
+    "source":   "https://github.com/user-attachments/files/18105171/if_net.json",
+    "format":   "PaddlePaddle IR v1",
+    "link":     "https://github.com/lutzroeder/netron/issues/1407"
+  },
+  {
+    "type":     "paddle",
     "target":   "lite_naive_model_opt.nb.tar.gz",
     "source":   "https://github.com/lutzroeder/netron/files/7084134/lite_naive_model_opt.nb.tar.gz",
     "format":   "Paddle Lite",
     "error":    "Paddle Lite naive buffer format is deprecated.",
     "link":     "https://github.com/lutzroeder/netron/issues/797"
+  },
+  {
+    "type":     "paddle",
+    "target":   "ir_model.json",
+    "source":   "https://github.com/user-attachments/files/18105172/ir_model.json",
+    "format":   "PaddlePaddle IR v1",
+    "link":     "https://github.com/lutzroeder/netron/issues/1407"
+  },
+  {
+    "type":     "paddle",
+    "target":   "model_pylayer.json",
+    "source":   "https://github.com/user-attachments/files/18105175/model_pylayer.json",
+    "format":   "PaddlePaddle IR v1",
+    "link":     "https://github.com/lutzroeder/netron/issues/1407"
   },
   {
     "type":     "paddle",
@@ -5004,6 +5069,14 @@
     "format":   "PaddlePaddle",
     "link":     "https://github.com/lutzroeder/netron/issues/246"
   },
+  {
+    "type":     "paddle",
+    "target":   "while_net.json",
+    "source":   "https://github.com/user-attachments/files/18105173/while_net.json",
+    "format":   "PaddlePaddle IR v1",
+    "link":     "https://github.com/lutzroeder/netron/issues/1407"
+  },
+
   {
     "type":     "paddle",
     "target":   "without_tensor_type.zip",

@@ -1853,7 +1853,7 @@ view.Graph = class extends grapher.Graph {
 
     add(graph, signature) {
         this.identifier = this.model.identifier;
-        this.identifier += graph && graph.name ? `.${graph.name.replace(/\/|\\/, '.')}` : '';
+        this.identifier += graph && graph.name ? `.${graph.name.replace(/\/|\\/g, '.')}` : '';
         const clusters = new Set();
         const clusterParentMap = new Map();
         const groups = graph.groups;
@@ -5823,6 +5823,7 @@ view.ModelFactoryService = class {
         this.register('./catboost', ['.cbm']);
         this.register('./weka', ['.model']);
         this.register('./qnn', ['.json', '.bin', '.serialized']);
+        this.register('./kann', ['.kann', '.bin', '.kgraph']);
         this.register('', ['.cambricon', '.vnnmodel']);
         /* eslint-enable no-control-regex */
     }
