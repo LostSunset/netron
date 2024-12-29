@@ -290,13 +290,6 @@ pytorch.Graph = class {
                     this.inputs.push(argument);
                 }
             }
-            /*
-            for (const output_spec of exported_program.graph_signature.user_outputs()) {
-                const value = values.map(output_spec);
-                const argument = new pytorch.Argument(output_spec, [value]);
-                this.outputs.push(argument);
-            }
-            */
         } else if (pytorch.Utility.isTensor(module)) {
             const node = new pytorch.Node(execution, metadata, null, type, { value: module });
             this.nodes.push(node);
@@ -643,6 +636,8 @@ pytorch.Node = class {
                     const argument = new pytorch.Argument('value', [value]);
                     this.outputs.push(argument);
                 }
+            } else if (obj.op === 'root') {
+                this.type = { name: obj.op };
             } else {
                 throw new pytorch.Error(`Unsupported node operation '${obj.op}'.`);
             }
@@ -959,6 +954,7 @@ pytorch.Container = class {
             pytorch.Container.torch_utils,
             pytorch.Container.Mobile,
             pytorch.Container.ModelJson,
+            pytorch.Container.IR,
             pytorch.Container.Index,
             pytorch.Container.ExportedProgram,
             pytorch.Container.ExecuTorch,
@@ -1231,6 +1227,7 @@ pytorch.Container.Zip = class extends pytorch.Container {
     constructor(entries) {
         super();
         this.type = 'pytorch.zip';
+        // https://github.com/pytorch/pytorch/blob/main/torch/csrc/jit/OVERVIEW.md
         // https://github.com/pytorch/pytorch/blob/master/torch/csrc/jit/docs/serialization.md
         this._entries = entries;
     }
@@ -1286,9 +1283,7 @@ pytorch.Container.ModelJson = class extends pytorch.Container {
     }
 
     async read(metadata) {
-        if (this._entries.has('model.json')) {
-            pytorch.proto = await this._context.require('./pytorch-proto');
-        }
+        pytorch.proto = await this._context.require('./pytorch-proto');
         const keys = [
             'attributes.pkl',
             'version',
@@ -1327,6 +1322,37 @@ pytorch.Container.ModelJson = class extends pytorch.Container {
         delete this._context;
         delete this._model;
         delete this._entries;
+    }
+};
+
+pytorch.Container.IR = class extends pytorch.Container {
+
+    static open(context) {
+        const reader = context.read('text', 0x100);
+        if (reader && reader.length > 0) {
+            const line = reader.read('\n');
+            if (line.startsWith('graph(')) {
+                return new pytorch.Container.IR(context);
+            }
+        }
+        return null;
+    }
+
+    constructor(context) {
+        super();
+        this.type = 'pytorch.ir';
+        this.context = context;
+    }
+
+    async read(metadata) {
+        this.format = 'TorchScript IR';
+        this.execution = new pytorch.Execution(null, metadata);
+        for (const event of this._events) {
+            this.execution.on(event[0], event[1]);
+        }
+        // this.execution.graph;
+        // context reader = context.read('text', 0x100);
+        throw new pytorch.Error('TorchScript IR parser not implemented.');
     }
 };
 
