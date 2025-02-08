@@ -10,7 +10,7 @@ const pnnx = {};
 
 ncnn.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const identifier = context.identifier.toLowerCase();
         if (identifier.endsWith('.param.bin') || identifier.endsWith('.ncnnmodel')) {
             const stream = context.stream;

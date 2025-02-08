@@ -3,7 +3,7 @@ const xmodel = {};
 
 xmodel.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const tags = context.tags('pb');
         if (tags.get(5) === 2) {
             context.type = 'xmodel.pb';

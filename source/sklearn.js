@@ -5,7 +5,7 @@ const sklearn = {};
 
 sklearn.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const obj = context.peek('pkl');
         const validate = (obj, name) => {
             if (obj && obj.__class__ && obj.__class__.__module__ && obj.__class__.__name__) {

@@ -3,7 +3,7 @@ const mslite = {};
 
 mslite.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const extension = context.identifier.split('.').pop().toLowerCase();
         const reader = context.peek('flatbuffers.binary');
         if (reader) {

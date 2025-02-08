@@ -10,7 +10,7 @@ const numpy = {};
 
 pytorch.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const container = pytorch.Container.open(context);
         if (container) {
             context.type = container.type;

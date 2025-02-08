@@ -9,7 +9,7 @@ const tf = {};
 
 tf.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const identifier = context.identifier;
         const extension = identifier.split('.').pop().toLowerCase();
         if (extension === 'pbtxt' || extension === 'prototxt' || extension === 'pt' || extension === 'txt') {

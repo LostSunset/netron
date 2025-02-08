@@ -7,7 +7,7 @@ const megengine = {};
 
 megengine.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const stream = context.stream;
         if (stream && stream.length >= 12) {
             let buffer = stream.peek(12);

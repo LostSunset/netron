@@ -3,7 +3,7 @@ const caffe2 = {};
 
 caffe2.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const identifier = context.identifier.toLowerCase();
         const extension = identifier.split('.').pop().toLowerCase();
         switch (extension) {

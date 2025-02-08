@@ -7,7 +7,7 @@ const mlnet = {};
 
 mlnet.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const entries = context.peek('zip');
         if (entries instanceof Map && entries.size > 0) {
             const root = new Set(['TransformerChain', 'Predictor']);

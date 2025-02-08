@@ -5,7 +5,7 @@ const tengine = {};
 
 tengine.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const reader = tengine.Reader.open(context);
         if (reader) {
             context.type = 'tengine';

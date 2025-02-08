@@ -5,7 +5,7 @@ const barracuda = {};
 
 barracuda.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const stream = context.stream;
         if (stream && stream.length > 12) {
             const buffer = stream.peek(12);

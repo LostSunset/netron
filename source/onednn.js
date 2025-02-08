@@ -3,7 +3,7 @@ const onednn = {};
 
 onednn.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const obj = context.peek('json');
         if (obj && obj.version && obj.engine_kind && obj.fpmath_mode && obj.graph) {
             context.type = 'onednn';

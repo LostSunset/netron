@@ -7,7 +7,7 @@ const tflite = {};
 
 tflite.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const reader = context.peek('flatbuffers.binary');
         if (reader && reader.identifier === 'TFL3') {
             context.type = 'tflite.flatbuffers';

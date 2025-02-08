@@ -6,7 +6,7 @@ const dlc = {};
 
 dlc.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const container = dlc.Container.open(context);
         if (container) {
             context.type = 'dlc';

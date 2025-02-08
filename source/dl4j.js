@@ -5,7 +5,7 @@ const dl4j = {};
 
 dl4j.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const identifier = context.identifier;
         if (identifier === 'configuration.json') {
             const obj = context.peek('json');

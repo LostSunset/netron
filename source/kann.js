@@ -3,7 +3,7 @@ const kann = {};
 
 kann.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const reader = context.peek('flatbuffers.binary');
         if (reader && reader.identifier === 'KaNN') {
             context.type = 'kann.flatbuffers';

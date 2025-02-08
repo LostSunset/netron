@@ -5,7 +5,7 @@ const lasagne = {};
 
 lasagne.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const obj = context.peek('pkl');
         if (obj && obj.__class__ && obj.__class__.__module__ === 'nolearn.lasagne.base' && obj.__class__.__name__ === 'NeuralNet') {
             context.type = 'lasagne';

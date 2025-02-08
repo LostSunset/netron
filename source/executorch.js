@@ -12,7 +12,7 @@ import * as pytorch from './pytorch.js';
 
 executorch.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const reader = executorch.Reader.open(context);
         if (reader) {
             context.type = 'executorch';
@@ -860,7 +860,9 @@ coreml.Reader = class {
             const folder = path.length === 0 ? '' : `${path.join('/')}/`;
             const locals = new Map(Array.from(entries).filter(([key]) => key.startsWith(folder)).map(([key, value]) => [key.substring(folder.length), value]));
             const context = new coreml.Context(this, identifier, value, locals, protobuf);
-            factory.match(context);
+            /* eslint-disable no-await-in-loop */
+            await factory.match(context);
+            /* eslint-enable no-await-in-loop */
             if (context.type === 'coreml.manifest') {
                 /* eslint-disable no-await-in-loop */
                 const model = await factory.open(context);

@@ -4,7 +4,7 @@ const hailo = {};
 
 hailo.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const container = hailo.Container.open(context);
         if (container) {
             context.type = container.type;

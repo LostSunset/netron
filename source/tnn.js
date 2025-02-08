@@ -3,7 +3,7 @@ const tnn = {};
 
 tnn.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const identifier = context.identifier.toLowerCase();
         const stream = context.stream;
         if (stream && identifier.endsWith('.tnnproto')) {

@@ -3,7 +3,7 @@ const sentencepiece = {};
 
 sentencepiece.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const tags = context.tags('pb');
         if ((tags.size >= 3 && tags.size <= 5 &&
             tags.get(1) === 2 && tags.get(2) === 2 && tags.get(3) === 2) &&

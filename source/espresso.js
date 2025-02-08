@@ -3,7 +3,7 @@ const espresso = {};
 
 espresso.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const identifier = context.identifier.toLowerCase();
         if (identifier.endsWith('.espresso.net')) {
             const obj = context.peek('json');

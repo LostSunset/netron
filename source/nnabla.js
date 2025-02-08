@@ -3,7 +3,7 @@ const nnabla = {};
 
 nnabla.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const identifier = context.identifier;
         if (identifier.endsWith('.nntxt')) {
             const tags = context.tags('pbtxt');

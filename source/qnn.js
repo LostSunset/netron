@@ -5,7 +5,7 @@ const qnn = {};
 
 qnn.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const obj = context.peek('json');
         if (obj && obj['model.cpp'] && obj.graph) {
             context.type = 'qnn.json';

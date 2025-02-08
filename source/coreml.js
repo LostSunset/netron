@@ -5,7 +5,7 @@ const coreml = {};
 
 coreml.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const stream = context.stream;
         const identifier = context.identifier.toLowerCase();
         const extension = identifier.split('.').pop().toLowerCase();

@@ -3,7 +3,7 @@ const mnn = {};
 
 mnn.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const reader = context.peek('flatbuffers.binary');
         if (reader) {
             context.type = 'mnn.flatbuffers';

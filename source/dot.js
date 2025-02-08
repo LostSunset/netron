@@ -3,7 +3,7 @@ const dot = {};
 
 dot.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const reader = context.read('text', 0x10000);
         if (reader) {
             try {

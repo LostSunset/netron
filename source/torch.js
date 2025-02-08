@@ -5,7 +5,7 @@ const torch = {};
 
 torch.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const reader = torch.T7Reader.open(context);
         if (reader) {
             context.type = 'torch';

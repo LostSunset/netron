@@ -8,7 +8,7 @@ const openvx = {};
 
 rknn.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const container = rknn.Container.open(context);
         if (container) {
             context.type = 'rknn';

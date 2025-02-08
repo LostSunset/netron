@@ -5,7 +5,7 @@ const lightgbm = {};
 
 lightgbm.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const stream = context.stream;
         const signature = [0x74, 0x72, 0x65, 0x65, 0x0A];
         if (stream && stream.length >= signature.length && stream.peek(signature.length).every((value, index) => value === signature[index])) {

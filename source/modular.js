@@ -3,7 +3,7 @@ const modular = {};
 
 modular.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const obj = context.peek('json');
         if (obj && obj.signature === "netron:modular") {
             context.type = 'modular';

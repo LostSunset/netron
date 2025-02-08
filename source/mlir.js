@@ -6,7 +6,7 @@ const mlir = {};
 
 mlir.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const stream = context.stream;
         if (stream && stream.length > 4) {
             const buffer = stream.peek(4);

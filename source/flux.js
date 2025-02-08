@@ -5,7 +5,7 @@ const flux = {};
 
 flux.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const identifier = context.identifier;
         const extension = identifier.split('.').pop().toLowerCase();
         const stream = context.stream;

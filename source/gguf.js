@@ -3,7 +3,7 @@ const gguf = {};
 
 gguf.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const reader = gguf.Reader.open(context);
         if (reader) {
             context.type = 'gguf';

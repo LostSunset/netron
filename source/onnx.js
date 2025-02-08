@@ -5,7 +5,7 @@ const onnx = {};
 
 onnx.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const identifier = context.identifier;
         const extensions = [
             'saved_model.pb', 'predict_net.pb', 'init_net.pb',

@@ -7,7 +7,7 @@ const circle = {};
 
 circle.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const reader = context.peek('flatbuffers.binary');
         if (reader && reader.identifier === 'CIR0') {
             context.type = 'circle.flatbuffers';

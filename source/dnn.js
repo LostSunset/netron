@@ -5,7 +5,7 @@ const dnn = {};
 
 dnn.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const tags = context.tags('pb');
         if (tags.get(4) === 0 && tags.get(10) === 2) {
             context.type = 'dnn';

@@ -3,7 +3,7 @@ const cntk = {};
 
 cntk.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const stream = context.stream;
         // CNTK v1
         const signature = [0x42, 0x00, 0x43, 0x00, 0x4e, 0x00, 0x00, 0x00];

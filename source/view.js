@@ -6184,8 +6184,8 @@ view.ModelFactoryService = class {
         for (const module of modules) {
             /* eslint-disable no-await-in-loop */
             const factory = await this._require(module);
+            await factory.match(context);
             /* eslint-enable no-await-in-loop */
-            factory.match(context);
             if (context.stream && context.stream.position !== 0) {
                 throw new view.Error('Invalid stream position.');
             }
@@ -6245,8 +6245,8 @@ view.ModelFactoryService = class {
                     for (const module of modules) {
                         /* eslint-disable no-await-in-loop */
                         const factory = await this._require(module);
+                        await factory.match(context);
                         /* eslint-enable no-await-in-loop */
-                        factory.match(context);
                         if (context.stream && context.stream.position !== 0) {
                             throw new view.Error('Invalid stream position.');
                         }

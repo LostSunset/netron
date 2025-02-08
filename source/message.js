@@ -5,7 +5,7 @@ const message = {};
 
 message.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const stream = context.stream;
         if (stream) {
             const buffer = stream.peek(Math.min(64, stream.length));

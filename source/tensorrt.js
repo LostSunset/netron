@@ -5,7 +5,7 @@ const tensorrt = {};
 
 tensorrt.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const entries = [
             tensorrt.Engine,
             tensorrt.Container

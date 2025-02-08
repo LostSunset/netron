@@ -3,7 +3,7 @@ const openvino = {};
 
 openvino.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const identifier = context.identifier.toLowerCase();
         const extension = identifier.split('.').pop();
         if (/^.*\.ncnn\.bin$/.test(identifier) ||

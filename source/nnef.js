@@ -3,7 +3,7 @@ const nnef = {};
 
 nnef.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const identifier = context.identifier;
         const extension = identifier.split('.').pop().toLowerCase();
         switch (extension) {

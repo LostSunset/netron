@@ -6,7 +6,7 @@ const java = {};
 
 weka.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         try {
             const stream = context.stream;
             if (stream.length >= 5) {

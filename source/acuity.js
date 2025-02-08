@@ -3,7 +3,7 @@ const acuity = {};
 
 acuity.ModelFactory = class {
 
-    match(context) {
+    async match(context) {
         const obj = context.peek('json');
         if (obj && obj.MetaData && obj.Layers) {
             context.type = 'acuity';
